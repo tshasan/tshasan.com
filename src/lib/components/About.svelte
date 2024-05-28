@@ -23,20 +23,19 @@
 <div class="bg-base-200 py-10">
   <div class="container mx-auto px-4">
     <h1 class="text-5xl font-bold text-base-content mb-8 text-center">About Me</h1>
-    <div class="card bg-neutral shadow-xl  p-10 flex flex-col md:flex-row items-center justify-between">
+    <div class="card bg-neutral shadow-xl rounded-lg p-10 flex flex-col md:flex-row items-center justify-between">
       <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
         <div class="tooltip tooltip-accent img-container" data-tip="I know I look good">
-          <div class="avatar img"
+          <div class="avatar img" role="presentation"
             style="transform: perspective(500px) {zoom ? 'scale(1.15)' : ''} rotateX({xRotation}deg) rotateY({yRotation}deg)"
             on:mousemove={enterRotate3D}
             on:mouseleave={leaveRotate3D}
           >
             <div class="w-36 md:w-52 rounded-full overflow-hidden">
-              <img src={ProfilePicture} alt="Profile Picture" class="w-full h-full object-cover"/>
+              <img src={ProfilePicture} class="w-full h-full object-cover"/>
             </div>
           </div>
         </div>
-      </div>
       <div class="md:w-2/3 md:pl-12 text-center md:text-left">
         <p class="text-2xl text-neutral-content mb-6">
           I'm a 21-year-old software engineer based in Los Angeles. I specialize in creating innovative and user-friendly applications using modern technologies. 
