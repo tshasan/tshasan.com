@@ -57,7 +57,7 @@
       <button tabindex="0" class="btn btn-neutral text-neutral-content flex items-center">
         <span>Theme</span>
       </button>
-      <ul tabindex="0" class="dropdown-content mt-3 p-2 z-[1] shadow bg-neutral rounded-box w-30 text-neutral-content">
+      <ul tabindex="0" class="dropdown-content mt-3 p-2 z-[1] shadow bg-neutral rounded-box min-w-fit text-neutral-content">
         <div class="join join-vertical">
           {#each themes as theme}
             <input type="radio" name="theme-buttons" class="btn theme-controller join-item" aria-label={theme} value={theme} />
@@ -75,18 +75,6 @@
 
 <style>
   @media (max-width: 640px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .navbar > .flex-none {
-      margin-top: 0.5rem;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-
     .dropdown-content {
       width: 100%;
     }
