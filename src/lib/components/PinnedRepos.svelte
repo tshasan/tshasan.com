@@ -16,7 +16,7 @@
         {#each Array(4) as _}
           <div class="card bg-secondary text-secondary-content shadow-xl animate-pulse">
             <div class="card-body">
-              <h3 class="card-title h-8 w-3/4 mb-2 bg-base-300 rounded"></h3>
+              <h3 class="card-title h-8 w-3/4 mb-2 bg-base-300 rounded">Title</h3>
               <p class="h-16 mb-4 bg-base-300 rounded"></p>
             </div>
           </div>
@@ -69,3 +69,4 @@
     display: inline-block;
   }
 </style>
+>
