@@ -29,13 +29,14 @@
           <div class="avatar img" role="presentation"
             style="transform: perspective(500px) {zoom ? 'scale(1.15)' : ''} rotateX({xRotation}deg) rotateY({yRotation}deg)"
             on:mousemove={enterRotate3D}
-            on:mouseleave={leaveRotate3D}
-          >
+            on:mouseleave={leaveRotate3D}>
             <div class="w-36 md:w-52 rounded-full overflow-hidden">
-              <img src={ProfilePicture} class="w-full h-full object-cover"/>
+              <!-- svelte-ignore a11y-img-redundant-alt -->
+              <img src={ProfilePicture} alt="Profile Picture" class="w-full h-full object-cover"/>
             </div>
           </div>
         </div>
+      </div> 
       <div class="md:w-2/3 md:pl-12 text-center md:text-left">
         <p class="text-2xl text-neutral-content mb-6">
           I'm a 21-year-old software engineer based in Los Angeles. I specialize in creating innovative and user-friendly applications using modern technologies. 

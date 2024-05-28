@@ -4,8 +4,8 @@
   let themeControllers: NodeListOf<HTMLInputElement>;
   let currentIndex = -1;
 
-  const themes = ["business","default", "retro", "cyberpunk", "valentine", "aqua", "corporate","synthwave","lofi","black","wireframe","coffee","dim","luxury"];
-  const defaultTheme = "business";   
+  const themes = ["business", "default", "retro", "cyberpunk", "valentine", "aqua", "corporate", "synthwave", "lofi", "black", "wireframe", "coffee", "dim", "luxury"];
+  const defaultTheme = "business";
 
   onMount(() => {
     document.documentElement.setAttribute('data-theme', defaultTheme);
@@ -58,11 +58,11 @@
         <span>Theme</span>
       </button>
       <ul class="dropdown-content mt-3 p-2 z-[1] shadow bg-neutral rounded-box min-w-fit text-neutral-content">
-        <div class="join join-vertical">
-          {#each themes as theme}
+        {#each themes as theme}
+          <li>
             <input type="radio" name="theme-buttons" class="btn theme-controller join-item" aria-label={theme} value={theme} />
-          {/each}
-        </div>
+          </li>
+        {/each}
       </ul>
     </div>
   </div>
@@ -78,5 +78,24 @@
     .dropdown-content {
       width: 100%;
     }
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--color-neutral);
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--rounded-box);
+    padding: var(--space-2);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content li {
+    list-style: none;
   }
 </style>

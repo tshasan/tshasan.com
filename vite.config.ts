@@ -5,8 +5,8 @@ import compression from 'vite-plugin-compression';
 export default defineConfig({
   plugins: [
     sveltekit(),
-    compression({ algorithm: 'gzip' }),
-    compression({ algorithm: 'brotliCompress', ext: '.br' })
+     //compression({ algorithm: 'gzip' }),
+    //compression({ algorithm: 'brotliCompress', ext: '.br' })
   ],
   build: {
     sourcemap: true,
