@@ -1,59 +1,61 @@
-<script lang="ts">
-    import { onMount } from "svelte";
-  
-    export let themes: string[] = [];
-    export let defaultTheme: string = "business";
-  
-    let themeControllers: NodeListOf<HTMLInputElement>;
-    let currentIndex = -1;
-  
-    onMount(() => {
-      document.documentElement.setAttribute('data-theme', defaultTheme);
-  
-      themeControllers = document.querySelectorAll('.theme-controller');
-  
-      themeControllers.forEach(controller => {
-        if (controller.value === defaultTheme) {
-          controller.checked = true;
-        }
-  
-        controller.addEventListener('change', (event) => {
-          const theme = (event.target as HTMLInputElement).value;
-          document.documentElement.setAttribute('data-theme', theme);
-        });
-      });
-  
-      document.addEventListener('keydown', handleKeydown);
-    });
-  
-    function handleKeydown(event: KeyboardEvent) {
-      if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        currentIndex = (currentIndex + 1) % themeControllers.length;
-        (themeControllers[currentIndex] as HTMLElement).focus();
-      } else if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        currentIndex = (currentIndex - 1 + themeControllers.length) % themeControllers.length;
-        (themeControllers[currentIndex] as HTMLElement).focus();
-      } else if (event.key === 'Enter') {
-        event.preventDefault();
-        if (currentIndex >= 0) {
-          themeControllers[currentIndex].click();
-        }
-      }
-    }
-  </script>
-  
-  <div class="dropdown dropdown-end">
-    <button tabindex="0" class="btn btn-neutral text-neutral-content flex items-center">
-      <span>Theme</span>
-    </button>
-    <ul class="dropdown-content mt-3 p-2 z-[1] shadow bg-neutral rounded-box min-w-fit text-neutral-content">
-      {#each themes as theme}
-        <li>
-          <input type="radio" name="theme-buttons" class="btn theme-controller join-item" aria-label={theme} value={theme} />
-        </li>
-      {/each}
-    </ul>
+<script>
+  import { ChevronDown } from 'lucide-svelte';
+</script>
+
+<div class="dropdown relative">
+  <div tabindex="0" role="button" class="btn btn-ghost m-1 flex items-center">
+    Theme
+    <ChevronDown class="ml-2" />
   </div>
-   
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+  <ul
+    tabindex="0"
+    class="dropdown-content z-[ p-2 shadow-2xl bg-base-300 rounded-box w-full w-30"
+  >
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Default"
+        value="buisness"
+      />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Coffee"
+        value="coffee"
+      />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Cyberpunk"
+        value="cyberpunk"
+      />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Valentine"
+        value="valentine"
+      />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Aqua"
+        value="aqua"
+      />
+    </li>
+  </ul>
+</div>

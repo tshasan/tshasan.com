@@ -1,6 +1,6 @@
 {
   "name": "tshasan.com",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "pnpm vite dev",
@@ -27,6 +27,9 @@
     "depcheck": "^1.4.7",
     "lucide-svelte": "^0.379.0",
     "svelte-seo": "^1.6.1"
+  },
+  "engines": {
+    "node": "22.1.0"
   },
   "type": "module"
 }
