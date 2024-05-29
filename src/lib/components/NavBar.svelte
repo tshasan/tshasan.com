@@ -1,47 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-
-  let themeControllers: NodeListOf<HTMLInputElement>;
-  let currentIndex = -1;
+  import ThemeController from './ThemeController.svelte';
 
   const themes = ["business", "default", "retro", "cyberpunk", "valentine", "aqua", "corporate", "synthwave", "lofi", "black", "wireframe", "coffee", "dim", "luxury"];
   const defaultTheme = "business";
-
-  onMount(() => {
-    document.documentElement.setAttribute('data-theme', defaultTheme);
-
-    themeControllers = document.querySelectorAll('.theme-controller');
-
-    themeControllers.forEach(controller => {
-      if (controller.value === defaultTheme) {
-        controller.checked = true;
-      }
-
-      controller.addEventListener('change', (event) => {
-        const theme = (event.target as HTMLInputElement).value;
-        document.documentElement.setAttribute('data-theme', theme);
-      });
-    });
-
-    document.addEventListener('keydown', handleKeydown);
-  });
-
-  function handleKeydown(event: KeyboardEvent) {
-    if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      currentIndex = (currentIndex + 1) % themeControllers.length;
-      (themeControllers[currentIndex] as HTMLElement).focus();
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      currentIndex = (currentIndex - 1 + themeControllers.length) % themeControllers.length;
-      (themeControllers[currentIndex] as HTMLElement).focus();
-    } else if (event.key === 'Enter') {
-      event.preventDefault();
-      if (currentIndex >= 0) {
-        themeControllers[currentIndex].click();
-      }
-    }
-  }
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -53,18 +14,7 @@
     <h1 class="text-xl font-bold text-neutral-content">Taimur Hasan</h1>
   </div>
   <div class="flex-none">
-    <div class="dropdown dropdown-end">
-      <button tabindex="0" class="btn btn-neutral text-neutral-content flex items-center">
-        <span>Theme</span>
-      </button>
-      <ul class="dropdown-content mt-3 p-2 z-[1] shadow bg-neutral rounded-box min-w-fit text-neutral-content">
-        {#each themes as theme}
-          <li>
-            <input type="radio" name="theme-buttons" class="btn theme-controller join-item" aria-label={theme} value={theme} />
-          </li>
-        {/each}
-      </ul>
-    </div>
+    <ThemeController {themes} {defaultTheme} />
   </div>
   <div class="flex-none">
     <button class="btn btn-square btn-neutral text-neutral-content" on:click={scrollToTop}>
@@ -72,30 +22,3 @@
     </button>
   </div>
 </div>
-
-<style>
-  @media (max-width: 640px) {
-    .dropdown-content {
-      width: 100%;
-    }
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: var(--color-neutral);
-    min-width: 160px;
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--rounded-box);
-    padding: var(--space-2);
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown-content li {
-    list-style: none;
-  }
-</style>
