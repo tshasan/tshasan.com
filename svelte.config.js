@@ -21,6 +21,9 @@ const config = {
         'base-uri': ["'self'"],
         'form-action': ["'self'"]
       }
+    },
+    prerender: {
+      entries: ['*']  // Prerender all routes by default
     }
   }
 };

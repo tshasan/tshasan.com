@@ -1,3 +1,7 @@
+<script lang="ts">
+  import { name } from '$lib/config';
+</script>
+
 <div class="hero bg-base-200 relative py-10">
   <div class="hero-content text-center relative max-w-full px-4">
     <div class="relative z-10">
@@ -5,7 +9,7 @@
         class="text-5xl md:text-7xl lg:text-9xl text-base-content font-bold leading-tight"
       >
         Hi, I'm <br />
-        <span class="name-animation">Taimur Hasan</span>
+        <span class="name-animation">{name}</span>
       </h1>
     </div>
   </div>

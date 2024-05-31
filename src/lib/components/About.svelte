@@ -1,6 +1,13 @@
 <script lang="ts">
   import { Github, Linkedin, Mail } from 'lucide-svelte';
   import ProfilePicture from '$lib/assets/pfp.webp';
+  import {
+    aboutDescription,
+    githubUser,
+    linkedinUserId,
+    email,
+    avatarHover,
+  } from '$lib/config';
 
   let zoom = false;
   let xRotation = 0;
@@ -31,7 +38,7 @@
       <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
         <div
           class="tooltip tooltip-accent img-container"
-          data-tip="I know I look good"
+          data-tip={avatarHover}
         >
           <div
             class="avatar img"
@@ -43,10 +50,12 @@
             on:mouseleave={leaveRotate3D}
           >
             <div class="w-36 md:w-52 rounded-full overflow-hidden">
+              <!-- svelte-ignore a11y-img-redundant-alt -->
               <img
                 src={ProfilePicture}
                 alt="Profile Picture"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
@@ -54,25 +63,16 @@
       </div>
       <div class="md:w-2/3 md:pl-12 text-center md:text-left">
         <p class="text-2xl text-neutral-content mb-6">
-          I'm a 21-year-old software engineer based in Los Angeles. I specialize
-          in creating innovative and user-friendly applications using modern
-          technologies.
-        </p>
-        <p class="text-lg text-neutral-content mb-6">
-          Driven by a passion for problem-solving and continuous learning, I aim
-          to develop applications that enhance user experience and utilize AI
-          effectively. Outside of work, I explore new AI advancements,
-          contribute to open-source projects, and engage with the local tech
-          community.
+          {aboutDescription}
         </p>
         <div class="divider divider-accent text-neutral-content">
           Connect with me
         </div>
         <div class="flex justify-center space-x-12 mt-6">
           <a
-            href="https://github.com/tshasan"
+            href="https://github.com/{githubUser}"
             class="tooltip tooltip-accent"
-            data-tip="GitHub.com/tshasan"
+            data-tip="GitHub.com/{githubUser}"
             aria-label="Visit my GitHub Profile"
           >
             <Github
@@ -80,9 +80,9 @@
             />
           </a>
           <a
-            href="https://linkedin.com/in/tshasan"
+            href="https://linkedin.com/in/{linkedinUserId}"
             class="tooltip tooltip-accent"
-            data-tip="linkedin.com/in/taimurhasan1"
+            data-tip="linkedin.com/in/{linkedinUserId}"
             aria-label="Visit my LinkedIn Profile"
           >
             <Linkedin
@@ -90,10 +90,10 @@
             />
           </a>
           <a
-            href="mailto:work@tshasan.com"
+            href="mailto:{email}"
             class="tooltip tooltip-accent"
-            data-tip="work@tshasan.com"
-            aria-label="Send me an email at work@tshasan.com"
+            data-tip={email}
+            aria-label="Send me an email at {email}"
           >
             <Mail
               class="w-12 h-12 text-neutral-content hover:text-primary transition-transform transform hover:scale-150"

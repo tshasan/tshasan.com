@@ -1,5 +1,20 @@
-<script>
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { theme } from '$lib/theme';
   import { ChevronDown } from 'lucide-svelte';
+
+  let selectedTheme: string = '';
+
+  onMount(() => {
+    theme.subscribe((value: string) => {
+      selectedTheme = value;
+    });
+  });
+
+  const updateTheme = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    theme.set(target.value);
+  };
 </script>
 
 <div class="dropdown relative">
@@ -10,52 +25,98 @@
   <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
   <ul
     tabindex="0"
-    class="dropdown-content z-[ p-2 shadow-2xl bg-base-300 rounded-box w-full w-30"
+    class="dropdown-content z-[1000] p-2 shadow-xl bg-base-300 rounded-box w-30"
   >
     <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Default"
-        value="buisness"
-      />
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Business"
+          value="business"
+          checked={selectedTheme === 'business'}
+          on:change={updateTheme}
+        />
+      </label>
     </li>
     <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Coffee"
-        value="coffee"
-      />
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Coffee"
+          value="coffee"
+          checked={selectedTheme === 'coffee'}
+          on:change={updateTheme}
+        />
+      </label>
     </li>
     <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Cyberpunk"
-        value="cyberpunk"
-      />
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Cyberpunk"
+          value="cyberpunk"
+          checked={selectedTheme === 'cyberpunk'}
+          on:change={updateTheme}
+        />
+      </label>
     </li>
     <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Valentine"
-        value="valentine"
-      />
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Valentine"
+          value="valentine"
+          checked={selectedTheme === 'valentine'}
+          on:change={updateTheme}
+        />
+      </label>
     </li>
     <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Aqua"
-        value="aqua"
-      />
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Lofi"
+          value="lofi"
+          checked={selectedTheme === 'lofi'}
+          on:change={updateTheme}
+        />
+      </label>
+    </li>
+    <li>
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Black"
+          value="black"
+          checked={selectedTheme === 'black'}
+          on:change={updateTheme}
+        />
+      </label>
+    </li>
+    <li>
+      <label>
+        <input
+          type="radio"
+          name="theme-dropdown"
+          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          aria-label="Corporate"
+          value="corporate"
+          checked={selectedTheme === 'corporate'}
+          on:change={updateTheme}
+        />
+      </label>
     </li>
   </ul>
 </div>

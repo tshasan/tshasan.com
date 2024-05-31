@@ -1,9 +1,18 @@
-<script>
+<script lang="ts">
+  import { onMount } from 'svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import Hero from '$lib/components/Hero.svelte';
   import About from '$lib/components/About.svelte';
   import ShowCase from '$lib/components/ShowCase.svelte';
-  import Footer from '$lib/components/Footer.svelte';
+
+  let Footer;
+
+  onMount(async () => {
+    const { default: LoadedFooter } = await import(
+      '$lib/components/Footer.svelte'
+    );
+    Footer = LoadedFooter;
+  });
 </script>
 
 <NavBar />
@@ -12,4 +21,6 @@
   <About />
   <ShowCase />
 </main>
-<Footer />
+{#if Footer}
+  <svelte:component this={Footer} />
+{/if}
