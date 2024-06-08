@@ -10,10 +10,8 @@ const config = {
     vitePreprocess(),
     mdsvex({
       extensions: ['.svx', '.md'],
-      layout: {
-        blog: './src/layouts/MarkdownLayout.svelte'
-      }
-    })
+      layout: './src/layouts/postlayout.svelte',
+    }),
   ],
 
   kit: {

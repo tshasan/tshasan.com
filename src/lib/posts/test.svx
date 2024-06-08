@@ -1,0 +1,20 @@
+---
+title: "Test Post"
+date: "2024-06-07"
+---
+
+# Welcome to the Test Post
+
+This is a simple test post to verify that the mdsvex integration is working correctly in your SvelteKit project.
+
+You can add more markdown content here and see how it renders.
+
+## Features
+
+- **Svelte Components**: Seamlessly use Svelte components within your markdown.
+- **Syntax Highlighting**: Out-of-the-box support for syntax-highlighted code blocks.
+- **Layouts**: Define consistent layouts for your markdown content.
+
+## Conclusion
+
+With mdsvex, you can create rich, interactive markdown content for your SvelteKit projects.

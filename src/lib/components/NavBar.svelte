@@ -14,7 +14,12 @@
   class="navbar sticky top-0 z-50 bg-neutral text-neutral-content p-4 flex flex-wrap items-center justify-between"
 >
   <div class="flex-1">
-    <h1 class="text-xl font-bold text-neutral-content">{name}</h1>
+    <a
+      href="/"
+      class="text-xl font-bold text-neutral-content hover:text-accent"
+    >
+      <h1>{name}</h1>
+    </a>
   </div>
   <div class="flex-none flex items-center space-x-2">
     <ThemeController />
