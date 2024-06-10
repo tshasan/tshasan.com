@@ -18,3 +18,80 @@ You can add more markdown content here and see how it renders.
 ## Conclusion
 
 With mdsvex, you can create rich, interactive markdown content for your SvelteKit projects.
+
+<script>
+  // Any necessary JavaScript can be added here
+</script>
+
+<style>
+  /* Custom styles can be added here */
+</style>
+
+# DaisyUI and mdsvex Test Page
+
+This is a test page to demonstrate the integration of DaisyUI components and mdsvex features.
+
+## DaisyUI Components
+
+### Buttons
+
+<button class="btn btn-primary">Primary Button</button>
+<button class="btn btn-secondary">Secondary Button</button>
+<button class="btn btn-accent">Accent Button</button>
+
+### Cards
+
+<div class="card w-96 bg-base-100 shadow-xl">
+  <figure><img src="https://placeimg.com/400/225/arch" alt="Architecture"></figure>
+  <div class="card-body">
+    <h2 class="card-title">Card Title</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+### Alerts
+
+<div class="alert alert-info">
+  <div>
+    <span>Info Alert!</span>
+  </div>
+</div>
+
+<div class="alert alert-success">
+  <div>
+    <span>Success Alert!</span>
+  </div>
+</div>
+
+### Modals
+
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Modal Title</h3>
+    <p class="py-4">This is a modal!</p>
+    <div class="modal-action">
+      <label for="my-modal" class="btn">Close</label>
+    </div>
+  </div>
+</div>
+<label for="my-modal" class="btn modal-button">Open Modal</label>
+
+## mdsvex Features
+
+### Markdown Syntax
+
+Here is a list:
+- Item 1
+- Item 2
+- Item 3
+
+Here is some **bold** text and some *italic* text.
+
+### Code Blocks
+
+```js
+console.log('Hello, world!');
